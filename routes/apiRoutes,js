@@ -1,0 +1,12 @@
+const express = require("express");
+const router = express.Router();
+const negociosRoutes = require("./negociosRoutes");
+const resenasRoutes = require("./resenasRoutes"); // Importa las rutas de reseñas
+
+// Usa las rutas de negocios
+router.use("/api", negociosRoutes);
+// Usa las rutas de reseñas
+router.use("/api", resenasRoutes);
+
+
+module.exports = router;
