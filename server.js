@@ -18,7 +18,7 @@ const sugerenciasRoutes = require("./routes/sugerencias");
 app.use("/api/sugerencias", sugerenciasRoutes);
 app.use(
   cors({
-    origin: "https://mi-frontend-w0yb.onrender.com/",
+    origin: "https://mi-frontend-w0yb.onrender.com",
     credentials: true,
   })
 );
