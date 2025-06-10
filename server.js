@@ -18,7 +18,7 @@ const sugerenciasRoutes = require("./routes/sugerencias");
 app.use("/api/sugerencias", sugerenciasRoutes);
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://mi-backend-tz1u.onrender.com",
     credentials: true,
   })
 );
