@@ -44,45 +44,15 @@ router.post("/login", async (req, res) => {
     );
 
 
-const isProduction = process.env.NODE_ENV === 'production';
-
 res.cookie("auth_token", token, {
-  httpOnly: true,
-  secure: true,
-  sameSite: 'None',
-  maxAge: 3600000,
-});
-
-
-    /*
-    res.cookie("auth_token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       maxAge: 3600000,
     });
-
-res.cookie("auth_token", token, {
-  httpOnly: true,/*
-  secure: process.env.NODE_ENV === "production",
-  sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax", // 👈 importante
-  secure: false,               // 👈 solo para pruebas
-  sameSite: "Lax",             // 👈 solo para pruebas
-  maxAge: 3600000,
-});
-*/
-/*    
     res.cookie("usuarioId", usuario._id.toString(), {
       httpOnly: false,
       maxAge: 3600000,
-    }); */
-
-res.cookie("usuarioId", usuario._id.toString(), {
-  httpOnly: false,
-  secure: process.env.NODE_ENV === "production",
-  sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
-  maxAge: 3600000,
-});
-
+    });
     
 
     // ✅ Devolver el rol también
