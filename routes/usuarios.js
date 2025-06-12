@@ -42,22 +42,22 @@ router.post("/login", async (req, res) => {
       process.env.JWT_SECRET, 
       { expiresIn: '1h' }
     );
-/*
+
     res.cookie("auth_token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       maxAge: 3600000,
-    });*/ 
-
+    });
+/*
 res.cookie("auth_token", token, {
   httpOnly: true,/*
   secure: process.env.NODE_ENV === "production",
-  sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax", // 👈 importante*/ 
+  sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax", // 👈 importante
   secure: false,               // 👈 solo para pruebas
   sameSite: "Lax",             // 👈 solo para pruebas
   maxAge: 3600000,
 });
-
+*/
 /*    
     res.cookie("usuarioId", usuario._id.toString(), {
       httpOnly: false,
