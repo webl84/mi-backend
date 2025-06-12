@@ -56,11 +56,20 @@ res.cookie("auth_token", token, {
   maxAge: 3600000,
 });
 
-    
+/*    
     res.cookie("usuarioId", usuario._id.toString(), {
       httpOnly: false,
       maxAge: 3600000,
-    });
+    }); */
+
+res.cookie("usuarioId", usuario._id.toString(), {
+  httpOnly: false,
+  secure: process.env.NODE_ENV === "production",
+  sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+  maxAge: 3600000,
+});
+
+    
 
     // ✅ Devolver el rol también
     res.status(200).json({ 
