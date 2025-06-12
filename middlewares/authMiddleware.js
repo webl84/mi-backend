@@ -1,5 +1,5 @@
 // middlewares/authMiddleware.js
-/*const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
 const verificarToken = (req, res, next) => {
   const token = req.header('Authorization')?.split(' ')[1];  // Obtener el token del header
@@ -19,9 +19,9 @@ const verificarToken = (req, res, next) => {
   }
 };
 
-module.exports = { verificarToken };*/ 
+module.exports = { verificarToken };
 
-
+/*
 const jwt = require('jsonwebtoken');
 
 const verificarToken = (req, res, next) => {
@@ -41,4 +41,4 @@ const verificarToken = (req, res, next) => {
 };
 
 module.exports = { verificarToken };
-
+*/
