@@ -53,12 +53,7 @@ res.cookie("auth_token", token, {
       httpOnly: false,
       maxAge: 3600000,
     });
- res.clearCookie('auth_token', {
-  httpOnly: true,
-  secure: true,
-  sameSite: 'None'
-});
-return res.json({ message: 'Sesión cerrada' });   
+
 
     // ✅ Devolver el rol también
     res.status(200).json({ 
