@@ -50,9 +50,11 @@ router.post("/login", async (req, res) => {
     });*/ 
 
 res.cookie("auth_token", token, {
-  httpOnly: true,
+  httpOnly: true,/*
   secure: process.env.NODE_ENV === "production",
-  sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax", // 👈 importante
+  sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax", // 👈 importante*/ 
+  secure: false,               // 👈 solo para pruebas
+  sameSite: "Lax",             // 👈 solo para pruebas
   maxAge: 3600000,
 });
 
