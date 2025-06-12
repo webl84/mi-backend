@@ -43,12 +43,24 @@ router.post("/login", async (req, res) => {
       { expiresIn: '1h' }
     );
 
+
+const isProduction = process.env.NODE_ENV === 'production';
+
+res.cookie("auth_token", token, {
+  httpOnly: true,
+  secure: isProduction,
+  sameSite: isProduction ? 'None' : 'Lax',
+  maxAge: 3600000,
+});
+
+
+    /*
     res.cookie("auth_token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       maxAge: 3600000,
     });
-/*
+
 res.cookie("auth_token", token, {
   httpOnly: true,/*
   secure: process.env.NODE_ENV === "production",
