@@ -1,5 +1,5 @@
 // middlewares/authMiddleware.js
-const jwt = require('jsonwebtoken');
+/*const jwt = require('jsonwebtoken');
 
 const verificarToken = (req, res, next) => {
   const token = req.header('Authorization')?.split(' ')[1];  // Obtener el token del header
@@ -19,4 +19,26 @@ const verificarToken = (req, res, next) => {
   }
 };
 
+module.exports = { verificarToken };*/ 
+
+
+const jwt = require('jsonwebtoken');
+
+const verificarToken = (req, res, next) => {
+  const token = req.cookies.auth_token;  // 👈 Leer token desde la cookie
+
+  if (!token) {
+    return res.status(401).json({ mensaje: 'No autorizado, falta el token.' });
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
+    next();
+  } catch (err) {
+    return res.status(401).json({ mensaje: 'Token inválido.' });
+  }
+};
+
 module.exports = { verificarToken };
+
