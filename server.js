@@ -32,7 +32,7 @@ mongoose
   .catch((err) => console.error("❌ Error de conexión:", err));
 
 // Rutas
-app.use("/usuarios", require("./routes/usuarios"));
+/*app.use("/usuarios", require("./routes/usuarios"));*/
 /*app.use("/api/negocios", require("./routes/negocios"));*/
 /*app.use("/api/resenas", require("./routes/resenas")); */
 app.use("/api/upload", require("./routes/upload")); 
