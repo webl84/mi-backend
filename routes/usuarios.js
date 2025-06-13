@@ -46,16 +46,13 @@ router.post("/login", async (req, res) => {
 
 res.cookie("auth_token", token, {
       httpOnly: true,
-      secure: true,
+      secure: process.env.NODE_ENV === "production",
       maxAge: 3600000,
     });
     res.cookie("usuarioId", usuario._id.toString(), {
-    httpOnly: false,
-    secure: true,
-    sameSite: "None",
-    maxAge: 3600000
-  });
-
+      httpOnly: false,
+      maxAge: 3600000,
+    });
 
 
     // ✅ Devolver el rol también
