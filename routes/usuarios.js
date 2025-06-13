@@ -50,9 +50,12 @@ res.cookie("auth_token", token, {
       maxAge: 3600000,
     });
     res.cookie("usuarioId", usuario._id.toString(), {
-      httpOnly: false,
-      maxAge: 3600000,
-    });
+    httpOnly: false,
+    secure: true,
+    sameSite: "None",
+    maxAge: 3600000
+  });
+
 
 
     // ✅ Devolver el rol también
